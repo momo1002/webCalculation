@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    p {
+        font-family: "Helvetica Neue",
+        Arial,
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        Meiryo,
+        sans-serif;
+
+        /* Keyword values */
+        font-smooth: auto;
+        font-smooth: never;
+        font-smooth: always;
+
+        /* <length> value */
+        font-smooth: 2em;
+    }
+	button {
+		width: 50px;
+		height: 50px;
+	}
+    #circle {
+        color: #ccc;
+        font-size: 2em;
+        line-height: 0.7em;
+    }
+    .first-pressed-circle {
+        color: #DE3163;
+    }
+    </style>
+</head>
+
+<body>
+    <p>Hello WEBCalc</p>
+    <input /><br />
+
+    <button value="1" onclick="afterCalc('1'); append('1'); colorCircle();">1</button>
+    <button value="2" onclick="afterCalc('2'); append('2'); colorCircle();">2</button>
+    <button value="3" onclick="afterCalc('3'); append('3'); colorCircle();">3</button>
+    <button value="4" onclick="afterCalc('4'); append('4'); colorCircle();">4</button>
+    <button value="5" onclick="afterCalc('5'); append('5'); colorCircle();">5</button><br />
+    <button value="6" onclick="afterCalc('6'); append('6'); colorCircle();">6</button>
+    <button value="7" onclick="afterCalc('7'); append('7'); colorCircle();">7</button>
+    <button value="8" onclick="afterCalc('8'); append('8'); colorCircle();">8</button>
+    <button value="9" onclick="afterCalc('9'); append('9'); colorCircle();">9</button>
+    <button value="0" onclick="afterCalc('0'); append('0'); zero();">0</button><br />
+    <button id="btn+" onclick="doubleSymbol(); afterCalc('+'); append('+'); headSymbol();">+</button>
+    <button id="btn-" onclick="doubleSymbol(); afterCalc('-'); append('-'); headSymbol();">-</button>
+    <button id="btn*" onclick="doubleSymbol(); afterCalc('*'); append('*'); headSymbol();">×</button>
+    <button id="btn/" onclick="doubleSymbol(); afterCalc('/'); append('/'); headSymbol();">÷</button>
+
+    <button onclick="calc()">=</button><br />
+    <button onclick="backSpace()"> ← </button>
+    <button onclick="update('')">CLR</button>
+    <br />
+    <br /><br />
+    <div id="circle"></div>
+    <br />
+    <script type="text/javascript" src="calc.js"></script>
+</body>
+</html>
