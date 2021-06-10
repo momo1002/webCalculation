@@ -1,0 +1,140 @@
+body {
+    font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo, sans-serif;
+}
+#circle span {
+    display: block;
+    float: left;
+    position: relative;
+}
+span:before {
+    color: #555;
+    font-size: 0.3em;
+    line-height: 0.5em;
+    top: -1em;
+    left: 0.8em;
+    position: absolute;
+}
+span#c1:before {
+    content: "1";
+    left: 0.7em;
+}
+span#c2:before {
+    content: "2";
+}
+span#c3:before {
+    content: "3";
+}
+span#c4:before {
+    content: "4";
+    left: 0.7em;
+}
+span#c5:before {
+    content: "5";
+}
+span#c6:before {
+    content: "6";
+}
+span#c7:before {
+    content: "7";
+}
+span#c8:before {
+    content: "8";
+}
+span#c9:before {
+    content: "9";
+}
+span#c10:before {
+    content: "10";
+    left: 0.4em;
+}
+
+span:after {
+    color: #555;
+    font-size: 0.3em;
+    line-height: 0.5em;
+    top: 0.8em;
+    left: -0.8em;
+    position: absolute;
+}
+span#c1:after {
+    content: "1";
+}
+span#c11:after {
+    content: "2";
+}
+span#c21:after {
+    content: "3";
+}
+span#c31:after {
+    content: "4";
+}
+span#c41:after {
+    content: "5";
+}
+span#c51:after {
+    content: "6";
+}
+span#c61:after {
+    content: "7";
+}
+span#c71:after {
+    content: "8";
+}
+span#c81:after {
+    content: "9";
+}
+span#c91:after {
+    content: "10";
+    left: -1.2em;
+}
+
+#number-display {
+    width: 200px;
+    height: 2em;
+    line-height: 2em;
+    background-color: powderblue;
+    padding-left: 0.5em;
+    letter-spacing: 0.1em
+}
+button {
+	width: 50px;
+	height: 50px;
+}
+#circle {
+    margin-left: 1em;
+    color: #ddd;
+    font-size: 2em;
+    line-height: 0.6em;
+}
+#circle2, #circle3 {
+    color: #ccc;
+    font-size: 2em;
+    line-height: 0.6em;
+}
+.first-pressed-circle {
+    color: #DE3163;
+}
+.second-pressed-circle {
+    color:  #6495ED;
+}
+.multi-pressed-circle {
+    color:  #9A012D;
+}
+.spacer {
+    height: 2em;
+}
+input {
+    font-size: large;
+    width: 3em;
+    background-color: powderblue;
+    margin: 5px;
+}
+#ipt {
+    display: none;
+}
+#ipt2 {
+    background-color: palevioletred;
+}
+#ipt3 {
+    background-color: lightgoldenrodyellow;
+}
