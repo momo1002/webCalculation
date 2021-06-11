@@ -114,7 +114,6 @@ function colorCircle() {
     try {
         for (var i = 0; i < firstPressedNmb; i++) {
             var targetNmb = "c" + (i + 1);
-            document.getElementById(targetNmb).textContent = "●";
             document.getElementById(targetNmb).classList.add("first-pressed-circle");
         }
     } catch (e) {
@@ -135,7 +134,6 @@ function plusColorCircle() {
 
         for (let j = 0; j < secondNumber; j++) {
             targetNumber = "c" + (firstNumber + 1 + j);
-            document.getElementById(targetNumber).textContent = "●"
             document.getElementById(targetNumber).classList.add("second-pressed-circle");
         }
     }
@@ -158,12 +156,10 @@ function multiColorCircle() {
                 for (let l = 0; l < firstNumber; l++) {
                     if (l == 9) {
                         targetNmb = "c" + (k + 2) + (l * 0);
-                        document.getElementById(targetNmb).textContent = "●";
                         document.getElementById(targetNmb).classList.add("multi-pressed-circle");
                     } else {
 
                         targetNmb = "c" + (k + 1) + (l + 1);
-                        document.getElementById(targetNmb).textContent = "●";
                         document.getElementById(targetNmb).classList.add("multi-pressed-circle");
                     }
                 }
