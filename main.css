@@ -1,6 +1,78 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
 body {
     font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo, sans-serif;
 }
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
+.spacer {
+    height: 4em;
+    clear: both;
+}
+.clr {
+    clear: both;
+}
+
+input {
+    font-size: large;
+    width: 3em;
+    background-color: powderblue;
+    margin: 5px;
+}
+#ipt {
+    display: none;
+}
+.container {
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    width: 400px;
+    height: 360px;
+    text-align: center;
+}
+#number-display {
+    width: 100%;
+    height: 100px;
+    padding: 20px 40px;
+    background: #00c988;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: right;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 60px;
+}
+
+.button-container {
+    padding: 0.5em;
+}
+
+button {
+    width: 2em;
+    height: 2em;
+    float: left;
+    padding: 0;
+    margin: 5px;
+    box-sizing: border-box;
+    background: #ecedef;
+    border: none;
+    font-size: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    font-weight: 700;
+    color: #5E5858;
+    cursor: pointer;
+}
+
+.point-color {
+ background: #00c988;
+ color: #ffffff;
+}
+
 #circle span {
     display: block;
     float: left;
@@ -88,53 +160,19 @@ span#c91:after {
     left: -1.2em;
 }
 
-#number-display {
-    width: 200px;
-    height: 2em;
-    line-height: 2em;
-    background-color: powderblue;
-    padding-left: 0.5em;
-    letter-spacing: 0.1em
-}
-button {
-	width: 50px;
-	height: 50px;
-}
+
 #circle {
     margin-left: 1em;
     color: #ddd;
-    font-size: 2em;
-    line-height: 0.6em;
-}
-#circle2, #circle3 {
-    color: #ccc;
-    font-size: 2em;
+    font-size: 3em;
     line-height: 0.6em;
 }
 .first-pressed-circle {
-    color: #DE3163;
+    color: #FE5E54;
 }
 .second-pressed-circle {
-    color:  #6495ED;
+    color:  #FCD200;
 }
 .multi-pressed-circle {
-    color:  #9A012D;
-}
-.spacer {
-    height: 2em;
-}
-input {
-    font-size: large;
-    width: 3em;
-    background-color: powderblue;
-    margin: 5px;
-}
-#ipt {
-    display: none;
-}
-#ipt2 {
-    background-color: palevioletred;
-}
-#ipt3 {
-    background-color: lightgoldenrodyellow;
+    color:  #FFB3C1;
 }
