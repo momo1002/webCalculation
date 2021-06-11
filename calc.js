@@ -151,18 +151,21 @@ function multiColorCircle() {
         const firstNumber = total / secondNumber;
         let targetNmb;
 
-        // 20*2や30*3ができない。
-        for (let k = 0; k < secondNumber - 1; k++) {
-            for (let l = 0; l < firstNumber; l++) {
-                if (l == 9) {
-                    targetNmb = "c" + (k + 2) + (l * 0);
-                    document.getElementById(targetNmb).textContent = "●";
-                    document.getElementById(targetNmb).classList.add("multi-pressed-circle");
-                } else {
+        if(firstNumber > 10){
+            alert("かけ算は最初の数字が10以下の場合のみ図が機能します。")
+        } else {
+            for (let k = 0; k < secondNumber - 1; k++) {
+                for (let l = 0; l < firstNumber; l++) {
+                    if (l == 9) {
+                        targetNmb = "c" + (k + 2) + (l * 0);
+                        document.getElementById(targetNmb).textContent = "●";
+                        document.getElementById(targetNmb).classList.add("multi-pressed-circle");
+                    } else {
 
-                    targetNmb = "c" + (k + 1) + (l + 1);
-                    document.getElementById(targetNmb).textContent = "●";
-                    document.getElementById(targetNmb).classList.add("multi-pressed-circle");
+                        targetNmb = "c" + (k + 1) + (l + 1);
+                        document.getElementById(targetNmb).textContent = "●";
+                        document.getElementById(targetNmb).classList.add("multi-pressed-circle");
+                    }
                 }
             }
         }
