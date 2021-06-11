@@ -72,7 +72,7 @@ function doubleSymbol() {
 
 function calc() {
     const v = BTN.value;
-    if (v == '') {
+    if (v == '' || state == "done") {
         update('');
         state = "start";
         numberDisplay();
