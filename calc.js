@@ -14,10 +14,10 @@ function pressNumber(value) {
     afterCalc(value);
     append(value);
     colorCircle();
-    makeFirstCircle();
-    makeSecondCircle();
     plusColorCircle();
     numberDisplay();
+    makeFirstCircle();
+    makeSecondCircle();
 }
 
 function pressSymbol(value) {
@@ -102,7 +102,11 @@ function numberDisplay() {
     }
     document.getElementById('number-display').innerHTML = numbersInDisplay;
 }
+
 function showHistory(arr, log) {
+    if (log.includes('*')) {
+        log = log.replace('*', '×');
+    }
     arr.unshift(log);
     if(arr.length == 11){
         arr.pop();
@@ -141,6 +145,7 @@ function colorCircle() {
 function makeFirstCircle() { // for plus
     const firstPressedNmb = KEY_TOP.value;
     var circle_base_array = [];
+    console.log(firstPressedNmb);
     for (let i = 0; i < firstPressedNmb; i++) {
         if ((i + 1) % 10 == 0) {
             circle_base_array[i] = `<span id='cc${ i+1 }' class='first-pressed-circle'>●</span><br />`;
@@ -149,7 +154,7 @@ function makeFirstCircle() { // for plus
         }
     }
     const insert = circle_base_array.join('');
-    document.getElementById('circle2').insertAdjacentHTML("afterbegin", insert);
+    document.getElementById('circle2').innerHTML = insert;
 }
 function makeSecondCircle() {
     if (KEY_TOP.value.includes("+")) {
