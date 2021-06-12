@@ -1,10 +1,12 @@
 // 電卓
 let state = "start";
-const BTN = document.querySelector('input');
 let symbol;
+let historyArr = new Array;
+const KEY_TOP = document.querySelector('input');
+
 
 function update(value) {
-    BTN.value = value;
+    KEY_TOP.value = value;
     numberDisplay();
 }
 
@@ -12,6 +14,7 @@ function pressNumber(value) {
     afterCalc(value);
     append(value);
     colorCircle();
+    makeFirstCircle();
     plusColorCircle();
     numberDisplay();
 }
@@ -41,26 +44,26 @@ function afterCalc(_v) {
 }
 
 function append(value) {
-    BTN.value += value;
+    KEY_TOP.value += value;
     state = "calc";
 }
 
 function zero() {
-    const zero = BTN.value;
+    const zero = KEY_TOP.value;
     if (zero === "0") {
         update('');
     }
 }
 
 function headSymbol() {
-    const symbol = BTN.value;
+    const symbol = KEY_TOP.value;
     if (symbol === "+" || symbol === "-" || symbol === "*" || symbol === "/") {
         update('');
     }
 }
 
 function doubleSymbol() {
-    const v = BTN.value;
+    const v = KEY_TOP.value;
     const last_letter = v.slice(-1);
     if (last_letter === "+" || last_letter === "-" || last_letter === "*" || last_letter === "/") {
         const delete_last_letter = v.slice(0, -1);
@@ -71,16 +74,19 @@ function doubleSymbol() {
 }
 
 function calc() {
-    const v = BTN.value;
+    const v = KEY_TOP.value;
     if (v == '' || state == "done") {
         update('');
+        baseCircle();
         state = "start";
         numberDisplay();
     } else {
         try {
             const f = eval(v);
-            update(v + "=" + f.toString());
+            let result = (v + "=" + f.toString());
+            update(result);
             numberDisplay();
+            showHistory(historyArr, result);
         } catch (_error) {
             update(_error)
         }
@@ -89,13 +95,19 @@ function calc() {
 }
 
 function numberDisplay() {
-    let numbersInDisplay = BTN.value;
+    let numbersInDisplay = KEY_TOP.value;
     if (numbersInDisplay.includes('*')) {
         numbersInDisplay = numbersInDisplay.replace('*', '×');
     }
     document.getElementById('number-display').innerHTML = numbersInDisplay;
 }
-
+function showHistory(arr, log) {
+    arr.unshift(log);
+    if(arr.length == 11){
+        arr.pop();
+    }
+    document.getElementById('history').innerHTML = arr.join('<br />');
+}
 
 function baseCircle() {
     var circle_base_array = [];
@@ -110,7 +122,7 @@ function baseCircle() {
 }
 
 function colorCircle() {
-    const firstPressedNmb = BTN.value;
+    const firstPressedNmb = KEY_TOP.value;
     try {
         for (var i = 0; i < firstPressedNmb; i++) {
             var targetNmb = "c" + (i + 1);
@@ -124,9 +136,23 @@ function colorCircle() {
     }
 }
 
+function makeFirstCircle() {
+    const firstPressedNmb = KEY_TOP.value;
+    var circle_base_array = [];
+    for (let i = 0; i < firstPressedNmb; i++) {
+        if ((i + 1) % 10 == 0) {
+            circle_base_array[i] = `<span id='cc${ i+1 }' class='first-pressed-circle'>●</span><br />`;
+        } else {
+            circle_base_array[i] = `<span id='cc${ i+1 }' class='first-pressed-circle'>●</span>`;
+        }
+    }
+    document.getElementById('circle2').innerHTML = circle_base_array.join('');
+
+}
+
 function plusColorCircle() {
-    if (BTN.value.includes("+")) {
-        const currentInput = BTN.value;
+    if (KEY_TOP.value.includes("+")) {
+        const currentInput = KEY_TOP.value;
         const plusLocation = currentInput.indexOf("+");
         const firstNumber = Number(currentInput.slice(0, plusLocation));
         const secondNumber = currentInput.slice(plusLocation + 1);
@@ -141,7 +167,7 @@ function plusColorCircle() {
 
 function multiColorCircle() {
     if (symbol == "*") {
-        const currentInput = BTN.value;
+        const currentInput = KEY_TOP.value;
         const multiLocation = currentInput.indexOf("*");
         const equalLocation = currentInput.indexOf("=");
         const secondNumber = currentInput.slice(multiLocation + 1, equalLocation);
