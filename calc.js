@@ -144,6 +144,11 @@ function colorCircle() {
 
 function makeFirstCircle() { // for plus
     const firstPressedNmb = KEY_TOP.value;
+
+    if(!firstPressedNmb.includes("+")){
+        document.getElementById('circle2').textContent = '';
+    } 
+
     var circle_base_array = [];
     console.log(firstPressedNmb);
     for (let i = 0; i < firstPressedNmb; i++) {
@@ -154,7 +159,7 @@ function makeFirstCircle() { // for plus
         }
     }
     const insert = circle_base_array.join('');
-    document.getElementById('circle2').innerHTML = insert;
+    document.getElementById('circle2').insertAdjacentHTML("afterbegin", insert);
 }
 function makeSecondCircle() {
     if (KEY_TOP.value.includes("+")) {
