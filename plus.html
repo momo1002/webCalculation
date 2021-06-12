@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>絵で見る計算機＜＋×＞｜幼児・小学生の足し算かけ算</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="number-display" contentEditable=true data-text="0"></div>
+        <input id="ipt" />
+        <div class="alert"></div>
+        <div class="button-container">
+            <button value="1"  onclick="pressNumber('1');">1</button>
+            <button value="2"  onclick="pressNumber('2');">2</button>
+            <button value="3"  onclick="pressNumber('3');">3</button>
+            <button value="4"  onclick="pressNumber('4');">4</button>
+            <button value="5"  onclick="pressNumber('5');">5</button>
+            <br class="clr" />
+            <button value="6"  onclick="pressNumber('6');">6</button>
+            <button value="7"  onclick="pressNumber('7');">7</button>
+            <button value="8"  onclick="pressNumber('8');">8</button>
+            <button value="9"  onclick="pressNumber('9');">9</button>
+            <button value="0"  onclick="pressNumber('0'); zero();">0</button>
+            <br class="clr" />
+            <button onclick="update(''); baseCircle();">c</button>
+            <button value="+"  onclick="pressSymbol('+');">+</button>
+
+            <button class="point-color" onclick="calc();">=</button>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    <div id="circle"></div>
+    <div class="spacer"></div>
+    <div id="circle2"></div>
+    <div class="spacer"></div>
+    <div id="history">計算りれき（10コ）</div>
+
+    <script type="text/javascript" src="calc.js"></script>
+    <script>baseCircle();</script>
+</body>
+</html>
