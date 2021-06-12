@@ -15,6 +15,7 @@ function pressNumber(value) {
     append(value);
     colorCircle();
     makeFirstCircle();
+    makeSecondCircle();
     plusColorCircle();
     numberDisplay();
 }
@@ -136,7 +137,7 @@ function colorCircle() {
     }
 }
 
-function makeFirstCircle() {
+function makeFirstCircle() { // for plus
     const firstPressedNmb = KEY_TOP.value;
     var circle_base_array = [];
     for (let i = 0; i < firstPressedNmb; i++) {
@@ -146,8 +147,25 @@ function makeFirstCircle() {
             circle_base_array[i] = `<span id='cc${ i+1 }' class='first-pressed-circle'>●</span>`;
         }
     }
-    document.getElementById('circle2').innerHTML = circle_base_array.join('');
-
+    const insert = circle_base_array.join('');
+    document.getElementById('circle2').insertAdjacentHTML("afterbegin", insert);
+}
+function makeSecondCircle() {
+    if (KEY_TOP.value.includes("+")) {
+        const currentInput = KEY_TOP.value;
+        const plusLocation = currentInput.indexOf("+");
+        const secondNumber = currentInput.slice(plusLocation + 1);
+        var circle_base_array = [];
+        for (let i = 0; i < secondNumber; i++) {
+            if ((i + 1) % 10 == 0) {
+                circle_base_array[i] = `<span id='cc${ i+1 }' class='second-pressed-circle'>●</span><br />`;
+            } else {
+                circle_base_array[i] = `<span id='cc${ i+1 }' class='second-pressed-circle'>●</span>`;
+            }
+        }
+        const insert = "<br />" + circle_base_array.join('');
+        document.getElementById('circle2').insertAdjacentHTML("beforeend", insert);
+    }
 }
 
 function plusColorCircle() {
