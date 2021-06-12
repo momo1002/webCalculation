@@ -119,7 +119,8 @@ function baseCircle() {
             circle_base_array[i] = `<span id='c${ i+1 }'>●</span>`;
         }
     }
-    document.getElementById('circle').innerHTML = circle_base_array.join('');
+    document.getElementById('circle').innerHTML = circle_base_array.join(''); //#circle
+    document.getElementById('circle2').textContent = ""; // #circle2
 }
 
 function colorCircle() {
