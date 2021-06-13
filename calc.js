@@ -6,13 +6,19 @@ const KEY_TOP = document.querySelector('input');
 const BODY_ID = document.querySelector('body').id;
 
 window.onload = function() {
-    if(BODY_ID == 'multi'){
-        baseCircle();
-        showTimesTables();
-        colorSameNumber();
-    } 
-    if(BODY_ID == 'plus') {
-        baseCircle();
+    switch (BODY_ID) {
+        case "multi":
+            baseCircle();
+            showTimesTables();
+            colorSameNumber();
+            break;
+    
+        case "plus":
+            baseCircle();
+            break;
+    
+        default:
+            break;
     }
 }
 
@@ -24,11 +30,20 @@ function update(value) {
 function pressNumber(value) {
     afterCalc(value);
     append(value);
-    colorCircle();
-    plusColorCircle();
     numberDisplay();
-    makeFirstCircle();
-    makeSecondCircle();
+    switch (BODY_ID) {
+        case "plus":
+            colorCircle();
+            plusColorCircle();
+            makeFirstCircle();
+            makeSecondCircle();
+            break;
+        case "multi":
+            colorCircle();
+            break;
+        default:
+            break;
+    }
 }
 
 function pressSymbol(value) {
@@ -41,15 +56,15 @@ function pressSymbol(value) {
 }
 
 function afterCalc(_v) {
-    if (state == "done") {
-        let array = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-        if (array.includes(_v)) {
+    if(BODY_ID !== "calc"){
+        if (state == "done") {
             update('');
             baseCircle();
             state = "calc";
-        } else {
+        }
+    } else {
+        if(state == "done"){
             update('');
-            baseCircle();
             state = "calc";
         }
     }
@@ -68,8 +83,8 @@ function zero() {
 }
 
 function headSymbol() {
-    const symbol = KEY_TOP.value;
-    if (symbol === "+" || symbol === "-" || symbol === "*" || symbol === "/") {
+    let SYMBOL = KEY_TOP.value;
+    if (SYMBOL === "+" || SYMBOL === "-" || SYMBOL === "*" || SYMBOL === "/") {
         update('');
     }
 }
@@ -89,16 +104,20 @@ function calc() {
     const v = KEY_TOP.value;
     if (v == '' || state == "done") {
         update('');
-        baseCircle();
         state = "start";
         numberDisplay();
+        if(BODY_ID !== "calc"){
+            baseCircle();
+        }
     } else {
         try {
             const f = eval(v);
             let result = (v + "=" + f.toString());
             update(result);
             numberDisplay();
-            showHistory(historyArr, result);
+            if(BODY_ID !== "calc"){
+                showHistory(historyArr, result);
+            }
         } catch (_error) {
             update(_error)
         }
@@ -110,6 +129,9 @@ function numberDisplay() {
     let numbersInDisplay = KEY_TOP.value;
     if (numbersInDisplay.includes('*')) {
         numbersInDisplay = numbersInDisplay.replace('*', '×');
+    }
+    if (numbersInDisplay.includes('/')) {
+        numbersInDisplay = numbersInDisplay.replace('/', '÷');
     }
     document.getElementById('number-display').innerHTML = numbersInDisplay;
 }
@@ -126,7 +148,7 @@ function showHistory(arr, log) {
 }
 
 function baseCircle() {
-    var circle_base_array = [];
+    let circle_base_array = [];
     for (let i = 0; i < 100; i++) {
         if ((i + 1) % 10 == 0) {
             circle_base_array[i] = `<span id='c${ i+1 }'>●</span><br />`;
@@ -134,8 +156,10 @@ function baseCircle() {
             circle_base_array[i] = `<span id='c${ i+1 }'>●</span>`;
         }
     }
-    document.getElementById('circle').innerHTML = circle_base_array.join(''); //#circle
-    document.getElementById('circle2').textContent = ""; // #circle2
+    document.getElementById('circle').innerHTML = circle_base_array.join('');
+    if(BODY_ID == "plus"){
+        document.getElementById('circle2').textContent = "";
+    }
 }
 
 function colorCircle() {
