@@ -3,7 +3,18 @@ let state = "start";
 let symbol;
 let historyArr = new Array;
 const KEY_TOP = document.querySelector('input');
+const BODY_ID = document.querySelector('body').id;
 
+window.onload = function() {
+    if(BODY_ID == 'multi'){
+        baseCircle();
+        showTimesTables();
+        colorSameNumber();
+    } 
+    if(BODY_ID == 'plus') {
+        baseCircle();
+    }
+}
 
 function update(value) {
     KEY_TOP.value = value;
@@ -225,12 +236,20 @@ function multiColorCircle() {
 function showTimesTables() {
     const array_a = [1,2,3,4,5,6,7,8,9];
     const array_b = [1,2,3,4,5,6,7,8,9];
-    const TABLE_TITLE = "<th>×</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th>"
-    
+    let TABLE_TITLE = array_a.map(function(item){ return `<th>${item}</th>`});
+    TABLE_TITLE = '<tr><th>×</th>' + TABLE_TITLE.join('') + '</tr>';
+
     let array_99 = array_a.map(function(item1){
         return '<tr><th>' + item1 + 'の段</th>' + array_b.map(function(item2){
-            return `<td class = 't${item1.toString()}-${item2.toString()}'>${item1 * item2}</td>`;
+            return `<td class='tt' id='t${item1.toString()}-${item2.toString()}'>${item1 * item2}</td>`;
         }).join('') + '</tr>';
     }).join('');
     document.getElementById("times-tables").innerHTML = '<table>' + TABLE_TITLE + array_99 + '</table>';
+}
+function colorSameNumber(){
+    const TIMES_TABLE_NUMBER = document.getElementsByClassName('tt');
+    console.log(TIMES_TABLE_NUMBER[3].textContent);
+
+    // 【課題】入力した数値と同じ数字を持つセルに色付け
+    // 【課題】クリックしたセルの数字と同じ数字を持つセルに色付け
 }
