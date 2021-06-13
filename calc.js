@@ -222,3 +222,15 @@ function multiColorCircle() {
         }
     }
 }
+function showTimesTables() {
+    const array_a = [1,2,3,4,5,6,7,8,9];
+    const array_b = [1,2,3,4,5,6,7,8,9];
+    const TABLE_TITLE = "<th>×</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th>"
+    
+    let array_99 = array_a.map(function(item1){
+        return '<tr><th>' + item1 + 'の段</th>' + array_b.map(function(item2){
+            return `<td class = 't${item1.toString()}-${item2.toString()}'>${item1 * item2}</td>`;
+        }).join('') + '</tr>';
+    }).join('');
+    document.getElementById("times-tables").innerHTML = '<table>' + TABLE_TITLE + array_99 + '</table>';
+}
