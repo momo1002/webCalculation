@@ -10,7 +10,7 @@ window.onload = function() {
         case "multi":
             baseCircle();
             showTimesTables();
-            colorSameNumber();
+            // colorSameNumber();
             break;
     
         case "plus":
@@ -20,6 +20,17 @@ window.onload = function() {
         default:
             break;
     }
+
+    let timesTablesNumbers = document.getElementsByClassName('tt');
+    timesTablesNumbers = Array.from(timesTablesNumbers);
+    console.log(timesTablesNumbers);
+
+    // map (xxx === ---.textContent)
+    // push()
+    // style追加
+    timesTablesCell.addEventListener('click', function(){
+
+    });
 }
 
 function update(value) {
@@ -270,10 +281,20 @@ function showTimesTables() {
     }).join('');
     document.getElementById("times-tables").innerHTML = '<table>' + TABLE_TITLE + array_99 + '</table>';
 }
-function colorSameNumber(){
-    const TIMES_TABLE_NUMBER = document.getElementsByClassName('tt');
-    console.log(TIMES_TABLE_NUMBER[3].textContent);
+
+
+
+
+    // timesTablesNumbers.addEventListener('click', function(clickedNumber) {
+        
+    //     let   matchedNumbers = [];
+    //     matchedNumbers = TIMES_TABLE_NUMBER_CONTENTS.filter(number => number === clickedNumber);
+    //     console.log(matchedNumbers);
+    // });
+
+
+// function colorSameNumber(){
+// }
 
     // 【課題】入力した数値と同じ数字を持つセルに色付け
     // 【課題】クリックしたセルの数字と同じ数字を持つセルに色付け
-}
