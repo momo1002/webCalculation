@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>絵で見る計算機＜＋×＞｜幼児・小学生の足し算かけ算</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body id="flash">
+
+    <div class="container">
+        <div class="number-flash">5637</div>
+    </div>
+    <div class="answer">
+        <div id="result"></div>
+        <form>
+            <input id="answer-input" type="text" name="answer-input" onkeyup="inputCheck()" style="ime-mode:disabled" />
+            <div class="spacer clr"></div>
+            <button>スタート</button>
+        </form>
+    </div>
+
+    <div class="spacer clr"></div>
+
+    <div id="digits" class="select">ケタ数
+        <form>
+            <label>
+                <input type="radio" name="radio-digit" value="5" checked/>
+                <span>１２３４５</span>
+            </label>
+            <label>
+                <input type="radio" name="radio-digit" value="6"/>
+                <span>１２３４５６</span>
+            </label>
+            <label>
+                <input type="radio" name="radio-digit" value="7"/>
+                <span>１２３４５６７</span>
+            </label>
+        </form>
+    </div>
+    <div id="time" class="select">時間
+        <form>
+            <label>
+                <input type="radio" name="radio-time" value="5" checked/>
+                <span>0.5秒</span>
+            </label>
+            <label>
+                <input type="radio" name="radio-time" value="4"/>
+                <span>0.4秒</span>
+            </label>
+            <label>
+                <input type="radio" name="radio-time" value="3"/>
+                <span>0.3秒</span>
+            </label>
+        </form>
+    </div>
+    <div id="color" class="select">色
+        <form>
+            <label>
+                <input type="radio" name="radio-color" value="white" checked/>
+                <span>しろ</span>
+            </label>
+            <label>
+                <input type="radio" name="radio-color" value="green"/>
+                <span>みどり</span>
+            </label>
+            <label>
+                <input type="radio" name="radio-color" value="pink"/>
+                <span>ぴんく</span>
+            </label>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="flash.js"></script>
+</body>
+</html>

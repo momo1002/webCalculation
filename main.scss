@@ -1,0 +1,300 @@
+@import "compass";
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  color: #555;
+}
+
+[contentEditable="true"]:empty:not(:focus):before {
+  content: attr(data-text);
+}
+.spacer {
+  height: 4em;
+  clear: both;
+}
+.clr {
+  clear: both;
+}
+
+body#plus, body#multi {
+  input {
+    font-size: large;
+    width: 3em;
+    background-color: powderblue;
+    margin: 5px;
+  }
+  #ipt {
+    display: none;
+  }
+  .container {
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 400px;
+    height: 360px;
+    text-align: center;
+  }
+  #number-display {
+    width: 100%;
+    height: 100px;
+    padding: 20px 40px;
+    background: #00c988;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: right;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 60px;
+  }
+  
+  .button-container {
+    padding: 0.5em;
+  }
+  
+  button {
+    width: 2em;
+    height: 2em;
+    float: left;
+    padding: 0;
+    margin: 5px;
+    box-sizing: border-box;
+    background: #ecedef;
+    border: none;
+    font-size: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    font-weight: 700;
+    color: #5e5858;
+    cursor: pointer;
+  
+    &:active {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  
+  .point-color {
+    background: #00c988 !important;
+    color: #ffffff !important;
+  }
+  
+  #circle span {
+    display: block;
+    float: left;
+    position: relative;
+  
+    &:before {
+      color: #555;
+      font-size: 0.3em;
+      line-height: 0.5em;
+      top: -1em;
+      left: 0.8em;
+      position: absolute;
+    }
+  }
+  
+  @for $i from 1 through 10 {
+      span#c#{$i}{
+          &:before {
+              content: "#{$i}";
+              
+              @if $i == 1 or $i == 4 {
+                  left: 0.7em;
+              } @else if $i == 10 {
+                  left: 0.4em;
+              }
+          }
+      }
+  }
+  
+  span:after {
+    color: #555;
+    font-size: 0.3em;
+    line-height: 0.5em;
+    top: 0.8em;
+    left: -0.8em;
+    position: absolute;
+  }
+  
+  @for $i from 0 through 9 {
+      @if $i == 0 {
+          span#c1{
+              &:after{
+                  $j : $i + 1;
+                  content: "#{$j}";
+              }
+          }
+  
+      } @else if $i == 9 {
+          span#c#{$i}1{
+              &:after{
+                  $j : $i + 1;
+                  content: "#{$j}";
+                  left: -1.2em;
+              }
+          }
+  
+      } @else {
+          span#c#{$i}1{
+              &:after{
+                  $j : $i + 1;
+                  content: "#{$j}";
+              }
+          }
+      }
+  }
+  
+  #circle,
+  #circle2 {
+    margin-left: 1em;
+    color: #ddd;
+    font-size: 3em;
+    line-height: 0.6em;
+  }
+  .first-pressed-circle {
+    color: #fe5e54;
+  }
+  .second-pressed-circle {
+    color: #fcd200;
+  }
+  .multi-pressed-circle {
+    color: #ffb3c1;
+  }
+  #history {
+    border-radius: 10px;
+    width: 400px;
+    padding: 1em;
+    background-color: #9fdbad;
+    line-height: 1.5em;
+  }
+  #times-tables table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+    border-bottom: 2px solid #00cccc;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
+      0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+  }
+  td {
+    color: #555;
+  }
+  th,
+  td {
+    text-align: right;
+    color: #999;
+    border: 1px solid #eee;
+    padding: 12px 5px;
+    border-collapse: collapse;
+  }
+  th {
+    background: #00cccc;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+        
+}
+
+
+/* flash */
+#flash {
+    font-size: medium;
+    .container {
+      background-color: #333;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .number-flash {
+        text-align: center;
+        letter-spacing: 5px;
+        margin: 0.5em auto;
+        padding-top: 1em;
+        color: white;
+        font-size: 5em;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        height: 3.2em;
+      }
+      input {
+        background-color: white;
+        width: 10em;
+      }
+      input::-ms-clear {
+        visibility: hidden;
+      }
+      .answer {
+        text-align: center;
+      }
+}
+
+
+
+#flash .select {
+  $primary-color: #00005c; 
+  $text-color: mix(#000, $primary-color, 64%);
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  
+  label {
+    display: flex;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.375em;
+    /* Accessible outline */
+    /* Remove comment to use */ 
+    /*
+      &:focus-within {
+          outline: .125em solid $primary-color;
+      }
+    */
+    input {
+      position: absolute;
+      left: -9999px;
+      &:checked + span {
+        background-color: mix(#fff, $primary-color, 84%);
+        &:before {
+          box-shadow: inset 0 0 0 0.4375em $primary-color;
+        }
+      }
+    }
+    span {
+      display: flex;
+      align-items: center;
+      padding: 0.375em 0.75em 0.375em 0.375em;
+      border-radius: 99em; // or something higher...
+      transition: 0.25s ease;
+      &:hover {
+        background-color: mix(#fff, $primary-color, 84%);
+      }
+      &:before {
+        display: flex;
+        flex-shrink: 0;
+        content: "";
+        background-color: #fff;
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        margin-right: 0.375em;
+        transition: 0.25s ease;
+        box-shadow: inset 0 0 0 0.125em $primary-color;
+      }
+    }
+  }
+}
+// End Codepen spesific styling
