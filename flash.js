@@ -36,17 +36,17 @@ function showRandomNumber(v){
     switch (v) {
         case 5:
             minNumber = 10000;
-            maxNumber = 100000;
+            maxNumber = 100000-1;
             break;
     
         case 6:
             minNumber = 100000;
-            maxNumber = 1000000;
+            maxNumber = 1000000-1;
             break;
     
         case 7:
             minNumber = 1000000;
-            maxNumber = 10000000;
+            maxNumber = 10000000-1;
             break;
     
         default:
@@ -68,11 +68,13 @@ function inputCheck() {
     if(textLength == radioDigitValue){
 
         if(inputValue == randomNumber){
-            result.textContent = "Excellent!";
+            result.textContent = "大正解！！";
             input.blur();
+            button.textContent = "もう一度やる";
         } else {
             result.innerHTML = "答えは" + randomNumber + "でした。" ;
             input.blur();
+            button.textContent = "もう一度やる";
         }
     } else {
         result.innerHTML = radioDigitValue + "ケタ入力すると結果がでます。";
