@@ -7,7 +7,7 @@ const radioTime  = document.querySelector('input[name=radio-time]:checked');
 const radioDigitValue = parseInt(radioDigit.value);
 const radioTimeValue  = parseFloat(radioTime.value);
 
-const randomNumberDisplay = document.querySelector('.number-flash');
+const randomNumberDisplay = document.querySelector('#container__number-flash');
 
 let randomNumber;
 let textLength;

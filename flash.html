@@ -8,68 +8,70 @@
 
 <body id="flash">
 
-    <div class="container">
-        <div class="number-flash">5637</div>
+    <div class="number-flash-container">
+        <div class="number-flash-container__display" id="number-display">56372</div>
     </div>
-    <div class="answer">
-        <div id="result"></div>
+    <div class="command-container">
+        <div class="command-container__result" id="result"></div>
         <form>
-            <input id="answer-input" type="text" name="answer-input" onkeyup="inputCheck()" style="ime-mode:disabled" />
-            <div class="spacer clr"></div>
-            <button>はじめる</button>
+            <input class="command-container__input" id="answer-input" type="text" name="answer-input" onkeyup="inputCheck()" style="ime-mode:disabled" />
+            <div class="spacer--4em clr"></div>
+            <button class="command-container__satart-flash">はじめる</button>
         </form>
     </div>
 
-    <div class="spacer clr"></div>
+    <div class="spacer--4em clr"></div>
+    <div class="setting-container">
+        <div id="digits" class="setting-container__select">ケタ数
+            <form>
+                <label>
+                    <input type="radio" name="radio-digit" value="5" checked/>
+                    <span>１２３４５</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio-digit" value="6"/>
+                    <span>１２３４５６</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio-digit" value="7"/>
+                    <span>１２３４５６７</span>
+                </label>
+            </form>
+        </div>
+        <div id="time" class="setting-container__select">時間
+            <form>
+                <label>
+                    <input type="radio" name="radio-time" value="5" checked/>
+                    <span>0.5秒</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio-time" value="4"/>
+                    <span>0.4秒</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio-time" value="3"/>
+                    <span>0.3秒</span>
+                </label>
+            </form>
+        </div>
+        <div id="color" class="setting-container__select">色
+            <form>
+                <label>
+                    <input type="radio" name="radio-color" value="white" checked/>
+                    <span>しろ</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio-color" value="green"/>
+                    <span>みどり</span>
+                </label>
+                <label>
+                    <input type="radio" name="radio-color" value="pink"/>
+                    <span>ぴんく</span>
+                </label>
+            </form>
+        </div>
 
-    <div id="digits" class="select">ケタ数
-        <form>
-            <label>
-                <input type="radio" name="radio-digit" value="5" checked/>
-                <span>１２３４５</span>
-            </label>
-            <label>
-                <input type="radio" name="radio-digit" value="6"/>
-                <span>１２３４５６</span>
-            </label>
-            <label>
-                <input type="radio" name="radio-digit" value="7"/>
-                <span>１２３４５６７</span>
-            </label>
-        </form>
-    </div>
-    <div id="time" class="select">時間
-        <form>
-            <label>
-                <input type="radio" name="radio-time" value="5" checked/>
-                <span>0.5秒</span>
-            </label>
-            <label>
-                <input type="radio" name="radio-time" value="4"/>
-                <span>0.4秒</span>
-            </label>
-            <label>
-                <input type="radio" name="radio-time" value="3"/>
-                <span>0.3秒</span>
-            </label>
-        </form>
-    </div>
-    <div id="color" class="select">色
-        <form>
-            <label>
-                <input type="radio" name="radio-color" value="white" checked/>
-                <span>しろ</span>
-            </label>
-            <label>
-                <input type="radio" name="radio-color" value="green"/>
-                <span>みどり</span>
-            </label>
-            <label>
-                <input type="radio" name="radio-color" value="pink"/>
-                <span>ぴんく</span>
-            </label>
-        </form>
-    </div>
+</div>
 
     <script type="text/javascript" src="flash.js"></script>
 </body>

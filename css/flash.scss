@@ -1,48 +1,48 @@
+$radius: 10px;
 
-#flash {
+body#flash{
     font-size: medium;
-    .container {
-      background-color: #333;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
-      border-radius: $radius;
-      text-align: center;
-    }
-
-    .number-flash {
-      text-align: center;
-      letter-spacing: 5px;
-      margin: 0.5em auto;
-      padding-top: 1em;
-      color: white;
-      font-size: 5em;
-      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-        "Lucida Sans", Arial, sans-serif;
-      height: 3.2em;
-    }
-    input {
-      background-color: white;
-      width: 10em;
-    }
-    input::-ms-clear {
-      visibility: hidden;
-    }
-    .answer {
-      text-align: center;
-    }
-    #result {
-      padding: 1em;
-      background-color: #A9DFBF;
-      height: auto;
-      margin-bottom: 20px;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
-      border-radius: $radius;
-      height: 3.5em;
-    }
+}
+.number-flash-container {
+    background-color: #333;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: $radius;
+    text-align: center;
 }
 
+.number-flash-container__display {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+    text-align: center;
+    letter-spacing: 5px;
+    margin: 0.5em auto;
+    padding-top: 1em;
+    color: white;
+    font-size: 5em;
+    height: 3.2em;
+}
 
+.command-container {
+    text-align: center;
+}
+.command-container__result {
+    padding: 1em;
+    background-color: #A9DFBF;
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: $radius;
+    height: 3.5em;
+}
+input.command-container__input {
+    background-color: white;
+    width: 10em;
+}
+input::-ms-clear {
+    visibility: hidden;
+}
 
-#flash .select {
+.setting-container__select {
   $primary-color: #00005c; 
   $text-color: mix(#000, $primary-color, 64%);
   form {
