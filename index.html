@@ -2,15 +2,17 @@
 <head>
     <meta charset="UTF-8">
     <title>絵で見る計算機＜＋×＞｜幼児・小学生の足し算かけ算</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/calculator.css">
+    <link rel="stylesheet" type="text/css" href="css/circle.css">
 </head>
 
 <body id="calc">
-    <div class="container">
-        <div id="number-display" contentEditable=true data-text="0"></div>
-        <input id="ipt" />
-        <div class="alert"></div>
-        <div class="button-container">
+    <div class="calculator calculator__box-size-4rows">
+        <div id="calculator__number-display" contentEditable=true data-text="0"></div>
+        <input id="calculator__ipt" />
+        <div class="calculator__alert"></div>
+        <div class="calculator__buttons">
             <button value="1" onclick="pressNumber('1');">1</button>
             <button value="2" onclick="pressNumber('2');">2</button>
             <button value="3" onclick="pressNumber('3');">3</button>
@@ -27,16 +29,18 @@
             <button id="btn-" onclick="pressSymbol('-');">-</button>
             <button id="btn*" onclick="pressSymbol('*');">×</button>
             <button id="btn/" onclick="pressSymbol('/');">÷</button>
-            <button onclick="calc();">=</button>
+            <button  class="calculator__point-color" onclick="calc();">=</button>
             <button onclick="update(''); ">CLR</button>
         </div>
     </div>
-    <div class="spacer"></div>
+    <div class="spacer--4em"></div>
     
-    <button value="+"  onclick="location.href='plus.html'">+</button>
-    <button value="*"  onclick="location.href='multi.html'">×</button>
+    <div class="calculator__buttons">
+        <button value="+"  onclick="location.href='plus.html'">+</button>
+        <button value="*"  onclick="location.href='multi.html'">×</button>
+    </div>
 
-    <div class="spacer"></div>
+    <div class="spacer--4em"></div>
 
     <script type="text/javascript" src="calc.js"></script>
 </body>

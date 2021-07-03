@@ -1,0 +1,83 @@
+ 
+  .circle-container__table--with-number span {
+    display: block;
+    float: left;
+    position: relative;
+  
+    &:before {
+      color: #555;
+      font-size: 0.3em;
+      line-height: 0.5em;
+      top: -1em;
+      left: 0.8em;
+      position: absolute;
+    }
+  }
+  
+  @for $i from 1 through 10 {
+      span#c#{$i}{
+          &:before {
+              content: "#{$i}";
+              
+              @if $i == 1 or $i == 4 {
+                  left: 0.7em;
+              } @else if $i == 10 {
+                  left: 0.4em;
+              }
+          }
+      }
+  }
+  
+  span:after {
+    color: #555;
+    font-size: 0.3em;
+    line-height: 0.5em;
+    top: 0.8em;
+    left: -0.8em;
+    position: absolute;
+  }
+  
+  @for $i from 0 through 9 {
+      @if $i == 0 {
+          span#c1{
+              &:after{
+                  $j : $i + 1;
+                  content: "#{$j}";
+              }
+          }
+  
+      } @else if $i == 9 {
+          span#c#{$i}1{
+              &:after{
+                  $j : $i + 1;
+                  content: "#{$j}";
+                  left: -1.2em;
+              }
+          }
+  
+      } @else {
+          span#c#{$i}1{
+              &:after{
+                  $j : $i + 1;
+                  content: "#{$j}";
+              }
+          }
+      }
+  }
+  
+  .circle-container__table--with-number,
+  .circle-container__table--no-number {
+    margin-left: 1em;
+    color: #ddd;
+    font-size: 3em;
+    line-height: 0.6em;
+  }
+  .first-pressed-circle {
+    color: #fe5e54;
+  }
+  .second-pressed-circle {
+    color: #fcd200;
+  }
+  .multi-pressed-circle {
+    color: #ffb3c1;
+  }

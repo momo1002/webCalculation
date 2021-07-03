@@ -1,0 +1,28 @@
+$point-color: #00cccc;
+
+ .times-tables-container table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+    border-bottom: 2px solid $point-color;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
+      0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+
+    th,
+    td {
+        text-align: right;
+        border: 1px solid #eee;
+        padding: 12px 5px;
+        border-collapse: collapse;
+    }
+    th {
+        background: #00cccc;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+    td {
+        color: #555;
+    }
+  }

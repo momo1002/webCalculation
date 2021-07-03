@@ -1,0 +1,126 @@
+.circle-container__table--with-number span {
+  display: block;
+  float: left;
+  position: relative;
+}
+.circle-container__table--with-number span:before {
+  color: #555;
+  font-size: 0.3em;
+  line-height: 0.5em;
+  top: -1em;
+  left: 0.8em;
+  position: absolute;
+}
+
+span#c1:before {
+  content: "1";
+  left: 0.7em;
+}
+
+span#c2:before {
+  content: "2";
+}
+
+span#c3:before {
+  content: "3";
+}
+
+span#c4:before {
+  content: "4";
+  left: 0.7em;
+}
+
+span#c5:before {
+  content: "5";
+}
+
+span#c6:before {
+  content: "6";
+}
+
+span#c7:before {
+  content: "7";
+}
+
+span#c8:before {
+  content: "8";
+}
+
+span#c9:before {
+  content: "9";
+}
+
+span#c10:before {
+  content: "10";
+  left: 0.4em;
+}
+
+span:after {
+  color: #555;
+  font-size: 0.3em;
+  line-height: 0.5em;
+  top: 0.8em;
+  left: -0.8em;
+  position: absolute;
+}
+
+span#c1:after {
+  content: "1";
+}
+
+span#c11:after {
+  content: "2";
+}
+
+span#c21:after {
+  content: "3";
+}
+
+span#c31:after {
+  content: "4";
+}
+
+span#c41:after {
+  content: "5";
+}
+
+span#c51:after {
+  content: "6";
+}
+
+span#c61:after {
+  content: "7";
+}
+
+span#c71:after {
+  content: "8";
+}
+
+span#c81:after {
+  content: "9";
+}
+
+span#c91:after {
+  content: "10";
+  left: -1.2em;
+}
+
+.circle-container__table--with-number,
+.circle-container__table--no-number {
+  margin-left: 1em;
+  color: #ddd;
+  font-size: 3em;
+  line-height: 0.6em;
+}
+
+.first-pressed-circle {
+  color: #fe5e54;
+}
+
+.second-pressed-circle {
+  color: #fcd200;
+}
+
+.multi-pressed-circle {
+  color: #ffb3c1;
+}

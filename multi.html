@@ -2,15 +2,18 @@
 <head>
     <meta charset="UTF-8">
     <title>絵で見る計算機＜＋×＞｜幼児・小学生の足し算かけ算</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/calculator.css">
+    <link rel="stylesheet" type="text/css" href="css/circle.css">
+    <link rel="stylesheet" type="text/css" href="css/timestables.css">
 </head>
 
 <body id="multi">
-    <div class="container">
-        <div id="number-display" contentEditable=true data-text="0"></div>
-        <input id="ipt" />
-        <div class="alert"></div>
-        <div class="button-container">
+    <div class="calculator calculator__box-size-3rows">
+        <div id="calculator__number-display" contentEditable=true data-text="0"></div>
+        <input id="calculator__ipt" />
+        <div class="calculator__alert"></div>
+        <div class="calculator__buttons">
             <button value="1"  onclick="pressNumber('1');">1</button>
             <button value="2"  onclick="pressNumber('2');">2</button>
             <button value="3"  onclick="pressNumber('3');">3</button>
@@ -26,15 +29,21 @@
             <button onclick="update(''); baseCircle();">c</button>
             <button value="*"  onclick="pressSymbol('*');">×</button>
 
-            <button class="point-color" onclick="calc(); multiColorCircle();">=</button>
+            <button class="calculator__point-color" onclick="calc(); multiColorCircle();">=</button>
         </div>
     </div>
-    <div class="spacer"></div>
-    <div id="circle"></div>
+    <div class="spacer--4em"></div>
+    <div class="circle-container">
+        <div class="circle-container__table--with-number" id="circle" ></div>
+    </div>
     <br />
     <div id="history">計算りれき（10コ）</div>
-    <div class="spacer"></div>
-    <div id="times-tables"></div>
+
+    <div class="spacer--4em"></div>
+
+    <div class="times-tables-container">
+        <div id="times-tables"></div>
+    </div>
 
     <script type="text/javascript" src="calc.js"></script>
 </body>

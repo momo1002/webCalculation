@@ -144,7 +144,7 @@ function numberDisplay() {
     if (numbersInDisplay.includes('/')) {
         numbersInDisplay = numbersInDisplay.replace('/', '÷');
     }
-    document.getElementById('number-display').innerHTML = numbersInDisplay;
+    document.getElementById('calculator__number-display').innerHTML = numbersInDisplay;
 }
 
 function showHistory(arr, log) {
