@@ -4,6 +4,7 @@ const result = document.querySelector('#result');
 const formElementById = document.getElementById('setting-form');
 const randomNumberDisplay = document.querySelector('#number-display');
 const randomNumberDisplayClass = document.querySelector('.number-flash-container__display');
+const correctAnswerDisplayUl = document.querySelector('.correct-answer-rate__display ul');
 const radio = document.querySelectorAll('.radio');
 
 const radioDigit = document.getElementsByName("radio-digit");
@@ -13,6 +14,7 @@ const radioColor = document.getElementsByName("radio-color");
 let radioDigitValue = 5;
 let radioTimeValue = 500;
 let radioColorValue = 'white';
+let answer = [];
 
 
 let randomNumber;
@@ -64,6 +66,7 @@ form.addEventListener('submit', function(e){
         resolve();
     }).then(() => {
         setDisplayNone(radioTimeValue);
+        input.focus();
     });
 
 }, false);
@@ -74,8 +77,6 @@ function setDisplayNone(){
         randomNumberDisplay.textContent = '';
     }, parseInt(radioTimeValue));
 }
-
-
 function getSetting(radioName){
     let value;
     let radios = formElementById.elements[radioName];
@@ -113,7 +114,6 @@ function showRandomNumber(v){
 
     randomNumber = Math.floor( Math.random() * (maxNumber - minNumber) + minNumber );
     randomNumberDisplay.innerHTML = randomNumber;
-    console.log(randomNumber);
 } 
 
 
@@ -122,15 +122,16 @@ function inputCheck() {
     textLength = inputValue.length;
 
     if(textLength == radioDigitValue){
-
         if(inputValue == randomNumber){
             result.textContent = "大正解！！";
             input.blur();
             button.textContent = "もう一度やる";
+            correctAnswerDisplayUl.innerHTML = "<li>◯ " + randomNumber + "</li>";
         } else {
-            result.innerHTML = "答えは" + randomNumber + "でした。" ;
+            result.innerHTML += "答えは" + randomNumber + "でした。" ;
             input.blur();
             button.textContent = "もう一度やる";
+            correctAnswerDisplayUl.innerHTML += "<li>× " + randomNumber + "</li>";
         }
     } else {
         result.innerHTML = radioDigitValue + "ケタ入力すると結果がでます。";

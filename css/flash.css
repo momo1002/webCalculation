@@ -88,3 +88,7 @@ input::-ms-clear {
   transition: 0.25s ease;
   box-shadow: inset 0 0 0 0.125em #00005c;
 }
+
+.correct-answer-rate__display ul {
+  list-style-type: none;
+}
