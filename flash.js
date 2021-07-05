@@ -126,7 +126,7 @@ function inputCheck() {
             result.textContent = "大正解！！";
             input.blur();
             button.textContent = "もう一度やる";
-            correctAnswerDisplayUl.innerHTML = "<li>◯ " + randomNumber + "</li>";
+            correctAnswerDisplayUl.innerHTML += "<li>◯ " + randomNumber + "</li>";
         } else {
             result.innerHTML += "答えは" + randomNumber + "でした。" ;
             input.blur();
