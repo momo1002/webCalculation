@@ -3,6 +3,7 @@
 $text-color: #555;
 $point-color: #00cccc;
 $radius: 10px;
+
 *,
 *:after,
 *:before {
@@ -26,12 +27,10 @@ body {
   clear: both;
 }
 
-
-
-  #history {
-    border-radius: $radius;
-    width: 400px;
-    padding: 1em;
-    background-color: #9fdbad;
-    line-height: 1.5em;
-  }
+#history {
+  border-radius: $radius;
+  width: 400px;
+  padding: 1em;
+  background-color: #9fdbad;
+  line-height: 1.5em;
+}

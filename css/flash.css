@@ -55,13 +55,6 @@ input::-ms-clear {
   position: relative;
   overflow: hidden;
   margin-bottom: 0.375em;
-  /* Accessible outline */
-  /* Remove comment to use */
-  /*
-    &:focus-within {
-        outline: .125em solid $primary-color;
-    }
-  */
 }
 .setting-container__select label input {
   position: absolute;
