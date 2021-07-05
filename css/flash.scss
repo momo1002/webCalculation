@@ -1,13 +1,22 @@
+@import "compass";
+
 $radius: 10px;
+$boxShadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 
 body#flash{
     font-size: medium;
+    padding: 5px;
 }
 .number-flash-container {
     background-color: #333;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
-    border-radius: $radius;
-    text-align: center;
+    box-shadow: $boxShadow;
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+    height: 128px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .number-flash-container__display {
@@ -15,11 +24,10 @@ body#flash{
     "Lucida Sans", Arial, sans-serif;
     text-align: center;
     letter-spacing: 5px;
-    margin: 0.5em auto;
-    padding-top: 1em;
     color: white;
-    font-size: 5em;
-    height: 3.2em;
+    font-size: 72px;
+    height: 1em;
+    width: 7em;
 }
 
 .command-container {
@@ -30,8 +38,9 @@ body#flash{
     background-color: #A9DFBF;
     height: auto;
     margin-bottom: 20px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
-    border-radius: $radius;
+    box-shadow: $boxShadow;
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
     height: 3.5em;
 }
 input.command-container__input {
