@@ -4,7 +4,7 @@ const result = document.querySelector('#result');
 const formElementById = document.getElementById('setting-form');
 const randomNumberDisplay = document.querySelector('#number-display');
 const randomNumberDisplayClass = document.querySelector('.number-flash-container__display');
-const correctAnswerDisplayUl = document.querySelector('.correct-answer-rate__display ul');
+const correctAnswerDisplayTable = document.querySelector('.correct-answer-rate__display tbody');
 const radio = document.querySelectorAll('.radio');
 
 const radioDigit = document.getElementsByName("radio-digit");
@@ -56,6 +56,10 @@ window.onload = () => {
 let form = document.querySelector('#setting-form');
 form.addEventListener('submit', function(e){
     e.preventDefault();
+    run();
+}, false);
+
+function run(){
     input.value = "";
 
     radioDigitValue  = getSetting('radio-digit');
@@ -68,8 +72,7 @@ form.addEventListener('submit', function(e){
         setDisplayNone(radioTimeValue);
         input.focus();
     });
-
-}, false);
+}
 
 
 function setDisplayNone(){
@@ -122,16 +125,23 @@ function inputCheck() {
     textLength = inputValue.length;
 
     if(textLength == radioDigitValue){
-        if(inputValue == randomNumber){
+        if(typeof randomNumber == 'undefined'){
+            result.textContent = "「はじめる」ボタンを押してください。";
+            input.blur();
+        } else if(inputValue == randomNumber){
             result.textContent = "大正解！！";
             input.blur();
             button.textContent = "もう一度やる";
-            correctAnswerDisplayUl.innerHTML += "<li>◯ " + randomNumber + "</li>";
+            correctAnswerDisplayTable.innerHTML += "<tr><td>◯</td><td>" + randomNumber + "</td></tr>";
+
+            setTimeout(() => { run(); }, 2000);
         } else {
-            result.innerHTML += "答えは" + randomNumber + "でした。" ;
+            result.innerHTML = "答えは" + randomNumber + "でした。" ;
             input.blur();
             button.textContent = "もう一度やる";
-            correctAnswerDisplayUl.innerHTML += "<li>× " + randomNumber + "</li>";
+            correctAnswerDisplayTable.innerHTML += "<tr><td>×</td><td>" + randomNumber + "</td></tr>";
+
+            setTimeout(() => { run(); }, 2000);
         }
     } else {
         result.innerHTML = radioDigitValue + "ケタ入力すると結果がでます。";
