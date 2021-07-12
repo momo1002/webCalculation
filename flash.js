@@ -89,15 +89,15 @@ function showRandomNumber(v){
         min += '0';
         max += '9';
     }
-    parseInt(min);
-    parseInt(max);
-    console.log(min);
-    console.log(max);
+    min = Math.ceil(min);
+    max = Math.floor(max);
 
 
     randomNumber = Math.floor( Math.random() * (max - min + 1) + min );
     randomNumberDisplay.innerHTML = randomNumber;
     result.innerHTML = '';
+
+    console.log(`${radioDigitValue}: ${randomNumber}(min:${min} max:${max})`);
 } 
 
 
