@@ -1,7 +1,7 @@
 const input  = document.querySelector('input[name="answer-input"]');
 const button = document.querySelector('button');
 const result = document.querySelector('#result');
-const formElementById = document.getElementById('setting-form');
+const formId = document.getElementById('setting-form');
 const randomNumberDisplay = document.querySelector('#number-display');
 const randomNumberDisplayClass = document.querySelector('.number-flash-container__display');
 const correctAnswerDisplayTable = document.querySelector('.correct-answer-rate__display tbody');
@@ -16,44 +16,10 @@ let radioTimeValue = 500;
 let radioColorValue = 'white';
 let answer = [];
 
-
 let randomNumber;
 let textLength;
 
-window.addEventListener( "DOMContentLoaded" , ()=> {
-    radioDigit.forEach(
-        r => r.addEventListener("change" ,
-                 e => {
-                    radioDigitValue = e.target.value;
-                    result.innerHTML = radioDigitValue + "ケタ入力すると結果がでます。";
-                 }
-            )
-    );
-
-
-    radioTime.forEach(
-        r => r.addEventListener("change" ,
-                 e => radioTimeValue = e.target.value
-            )
-    );
-
-
-    radioColor.forEach(
-        r => r.addEventListener("change" ,
-                 e => {
-                    radioColorValue = e.target.value;
-                    randomNumberDisplayClass.style.color = radioColorValue;
-                 }
-            )
-    );
-
-});
-
-window.onload = () => {
-    input.focus();
-}
-
-let form = document.querySelector('#setting-form');
+const form = document.querySelector('#setting-form');
 form.addEventListener('submit', function(e){
     e.preventDefault();
     run();
@@ -61,10 +27,13 @@ form.addEventListener('submit', function(e){
 
 function run(){
     input.value = "";
+    input.focus();
 
     radioDigitValue  = getSetting('radio-digit');
     radioTimeValue = getSetting('radio-time');
     radioColorValue = getSetting('radio-color');
+
+    setColor();
     new Promise((resolve) => {
         showRandomNumber(radioDigitValue);
         resolve();
@@ -74,15 +43,66 @@ function run(){
     });
 }
 
+window.onload = function() {
+    formId.onchange = realTimeRadioChange;
+}
+
+const realTimeRadioChange = () => {
+    changeDigitNow();
+    changeColorNow();
+}
+
+function changeDigitNow(){
+    let value;
+    let radios = formId.elements['radio-digit'];
+
+    for(let i = 0; i < radios.length; i++){
+        if(radios[i].checked){
+            value = radios[i].value; 
+        }
+    }
+
+    if(value == '5'){
+        randomNumberDisplay.textContent = '12345';
+    } else if (value == '6'){
+        randomNumberDisplay.textContent = '123456';
+    } else if (value == '7'){
+        randomNumberDisplay.textContent = '1234567';
+    } else {
+        console.error('something happend');
+    }
+}
+
+function changeColorNow(){
+    let value;
+    let radios = formId.elements['radio-color'];
+
+    for(let i = 0; i < radios.length; i++){
+        if(radios[i].checked){
+            value = radios[i].value; 
+        }
+    }
+
+    if(value == 'white'){
+        randomNumberDisplayClass.style.color = value;
+    } else if (value == '#0FEB40'){
+        randomNumberDisplayClass.style.color = value;
+    } else if (value == '#F00ED7'){
+        randomNumberDisplayClass.style.color = value;
+    } else {
+        console.error('something happend');
+    }
+}
 
 function setDisplayNone(){
     setTimeout(() => {
         randomNumberDisplay.textContent = '';
     }, parseInt(radioTimeValue));
 }
+
 function getSetting(radioName){
     let value;
-    let radios = formElementById.elements[radioName];
+    let radios = formId.elements[radioName];
 
     for(let i = 0; i < radios.length; i++){
         if(radios[i].checked){
@@ -90,6 +110,9 @@ function getSetting(radioName){
         }
     }
     return value;
+}
+function setColor(){
+    randomNumberDisplayClass.style.color = radioColorValue;
 }
 
 function showRandomNumber(v){
@@ -126,19 +149,19 @@ function inputCheck() {
 
     if(textLength == radioDigitValue){
         if(typeof randomNumber == 'undefined'){
-            result.textContent = "「はじめる」ボタンを押してください。";
+            result.textContent = "「Start」ボタンを押してください。";
             input.blur();
         } else if(inputValue == randomNumber){
-            result.textContent = "大正解！！";
+            result.textContent = "Excellent！！";
             input.blur();
-            button.textContent = "もう一度やる";
-            correctAnswerDisplayTable.innerHTML += "<tr><td>◯</td><td>" + randomNumber + "</td></tr>";
+            button.textContent = "Try again";
+            correctAnswerDisplayTable.innerHTML += "<tr><td>☆</td><td>" + randomNumber + "</td></tr>";
 
             setTimeout(() => { run(); }, 2000);
         } else {
             result.innerHTML = "答えは" + randomNumber + "でした。" ;
             input.blur();
-            button.textContent = "もう一度やる";
+            button.textContent = "Try again";
             correctAnswerDisplayTable.innerHTML += "<tr><td>×</td><td>" + randomNumber + "</td></tr>";
 
             setTimeout(() => { run(); }, 2000);

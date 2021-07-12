@@ -32,11 +32,16 @@ body#flash {
   padding: 1em;
   background-color: #A9DFBF;
   height: auto;
-  margin-bottom: 20px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   height: 3.5em;
+}
+
+.command-container__annotation {
+  color: #aaa;
+  font-size: small;
+  margin-top: 10px;
 }
 
 input.command-container__input {
@@ -46,6 +51,16 @@ input.command-container__input {
 
 input::-ms-clear {
   visibility: hidden;
+}
+
+.correct-answer-rate__display {
+  padding: 1em;
+  background-color: #c1f0d3;
+  height: auto;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  height: auto;
 }
 
 .setting-container__select form {
@@ -96,4 +111,18 @@ input::-ms-clear {
 
 .correct-answer-rate__display ul {
   list-style-type: none;
+}
+
+.menu_list {
+  height: 150px;
+}
+
+.pagination {
+  list-style: none;
+}
+
+.pagination li {
+  display: inline-block;
+  margin: 0 0.5em;
+  cursor: pointer;
 }

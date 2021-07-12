@@ -18,22 +18,22 @@
 <form id="setting-form">
     <section>
         <div class="number-flash-container">
-            <div class="number-flash-container__display" id="number-display">56372</div>
+            <div class="number-flash-container__display" id="number-display">12345</div>
         </div>
         <div class="command-container">
             <div class="command-container__result" id="result"></div>
             <input class="command-container__input" id="answer-input" type="numeric" name="answer-input" onkeyup="inputCheck()" inputmode="tel" style="ime-mode:disabled" />
-            <button type="submit" class="command-container__satart-flash">はじめる</button>
+            <button type="submit" class="command-container__satart-flash">Start</button><br />
         </div>
     </section>
     <div class="spacer--4em clr"></div>
     <section class="correct-answer-rate">
         <div class="correct-answer-rate__display">
-            <table><tr><th>正誤</th><th>こたえ</th></tr></table>
+            <table><tr><th>---</th><th>Answer</th></tr></table>
         </div>
     </section>
     <section class="setting-container">
-        <div class="setting-container__select">ケタ数
+        <div class="setting-container__select">Digit
             <label>
                 <input type="radio" class="radio" name="radio-digit" value="5" checked/>
                 <span>１２３４５</span>
@@ -47,44 +47,32 @@
                 <span>１２３４５６７</span>
             </label>
         </div>
-        <div class="setting-container__select">時間
+        <div class="setting-container__select">Time
             <label>
                 <input type="radio" class="radio" name="radio-time" value="500" checked/>
-                <span>0.5秒</span>
-            </label>
-            <label>
-                <input type="radio" class="radio" name="radio-time" value="300"/>
-                <span>0.3秒</span>
+                <span>0.5 sec</span>
             </label>
             <label>
                 <input type="radio" class="radio" name="radio-time" value="100"/>
-                <span>0.1秒</span>
-            </label>
-            <label>
-                <input type="radio" class="radio" name="radio-time" value="80"/>
-                <span>0.08秒</span>
+                <span>0.1 sec</span>
             </label>
             <label>
                 <input type="radio" class="radio" name="radio-time" value="50"/>
-                <span>0.05秒</span>
-            </label>
-            <label>
-                <input type="radio" class="radio" name="radio-time" value="50"/>
-                <span>0.01秒</span>
+                <span>0.01 sec</span>
             </label>
         </div>
-        <div class="setting-container__select">色
+        <div class="setting-container__select">Color
             <label>
                 <input type="radio" class="radio" name="radio-color" value="white" checked/>
-                <span>しろ</span>
+                <span>White / しろ</span>
             </label>
             <label>
                 <input type="radio" class="radio" name="radio-color" value="#0FEB40"/>
-                <span>みどり</span>
+                <span>Green / みどり</span>
             </label>
             <label>
                 <input type="radio" class="radio" name="radio-color" value="#F00ED7"/>
-                <span>ぴんく</span>
+                <span>Pink / ぴんく</span>
             </label>
         </div>
     </section>
