@@ -17,13 +17,28 @@ body {
   content: attr(data-text);
 }
 
+.spacer--1em {
+  height: 1em;
+  clear: both;
+}
+
 .spacer--2em {
   height: 2em;
   clear: both;
 }
 
+.spacer--3em {
+  height: 3em;
+  clear: both;
+}
+
 .spacer--4em {
   height: 4em;
+  clear: both;
+}
+
+.spacer--5em {
+  height: 5em;
   clear: both;
 }
 

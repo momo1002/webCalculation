@@ -45,6 +45,7 @@ body#flash {
 }
 
 input.command-container__input {
+  margin-top: 1em;
   background-color: white;
   width: 10em;
 }

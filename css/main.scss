@@ -23,13 +23,12 @@ body {
 [contentEditable="true"]:empty:not(:focus):before {
   content: attr(data-text);
 }
-.spacer--2em {
-  height: 2em;
-  clear: both;
-}
-.spacer--4em {
-  height: 4em;
-  clear: both;
+
+@for $i from 1 through 5 {
+  .spacer--#{$i}em {
+    height: #{$i}em;
+    clear: both;
+  }
 }
 .clr {
   clear: both;
