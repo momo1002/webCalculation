@@ -17,23 +17,19 @@ let radioColorValue = 'white';
 let answer = [];
 
 let randomNumber;
-let textLength;
 
 const form = document.querySelector('#setting-form');
 form.addEventListener('submit', function(e){
     e.preventDefault();
     run();
-}, false);
+}, false); // 「this false == action="javascript:void(0)"」action属性を省略している場合、自身のページがリロードされる。false値を返しフォームの送信を中止。
 
 function run(){
     input.value = "";
     input.focus();
 
-    radioDigitValue  = getSetting('radio-digit');
     radioTimeValue = getSetting('radio-time');
-    radioColorValue = getSetting('radio-color');
 
-    setColor();
     new Promise((resolve) => {
         showRandomNumber(radioDigitValue);
         resolve();
@@ -48,36 +44,23 @@ window.onload = function() {
 }
 
 const realTimeRadioChange = () => {
-    changeDigitNow();
-    changeColorNow();
+    setDigit();
+    setColor();
 }
 
-function changeDigitNow(){
+function setDigit(){
     radioDigitValue = getSetting('radio-digit');
+    let v = new String();
 
-    if(radioDigitValue == '5'){
-        randomNumberDisplay.textContent = '12345';
-    } else if (radioDigitValue == '6'){
-        randomNumberDisplay.textContent = '123456';
-    } else if (radioDigitValue == '7'){
-        randomNumberDisplay.textContent = '1234567';
-    } else {
-        console.error('something happend');
+    for (let d = 1; d < parseInt(radioDigitValue)+1 ; d++) {
+        v += d;
+        randomNumberDisplay.innerHTML = v;
     }
 }
 
-function changeColorNow(){
+function setColor(){
     radioColorValue = getSetting('radio-color');
-
-    if(radioColorValue == 'white'){
-        randomNumberDisplayClass.style.color = radioColorValue;
-    } else if (radioColorValue == '#0FEB40'){
-        randomNumberDisplayClass.style.color = radioColorValue;
-    } else if (radioColorValue == '#F00ED7'){
-        randomNumberDisplayClass.style.color = radioColorValue;
-    } else {
-        console.error('something happend');
-    }
+    randomNumberDisplayClass.style.color = radioColorValue;
 }
 
 function setDisplayNone(){
@@ -97,32 +80,20 @@ function getSetting(radioName){
     }
     return value;
 }
-function setColor(){
-    randomNumberDisplayClass.style.color = radioColorValue;
-}
 
 function showRandomNumber(v){
-    let minNumber = 0;
-    let maxNumber = 0;
-    switch (parseInt(v)) {
-        case 5:
-            minNumber = 10000;
-            maxNumber = 99999;
-            break;
-    
-        case 6:
-            minNumber = 100000;
-            maxNumber = 999999;
-            break;
-    
-        case 7:
-            minNumber = 1000000;
-            maxNumber = 9999999;
-            break;
-    
-        default:
-            break;
+    let minNumber = 1;
+    let maxNumber = 9;
+
+    for(let i = 1; i < parseInt(v); i++){
+        minNumber += '0';
+        maxNumber += '9';
     }
+    parseInt(minNumber);
+    parseInt(maxNumber);
+    console.log(minNumber);
+    console.log(maxNumber);
+
 
     randomNumber = Math.floor( Math.random() * (maxNumber - minNumber) + minNumber );
     randomNumberDisplay.innerHTML = randomNumber;
@@ -131,6 +102,7 @@ function showRandomNumber(v){
 
 
 function inputCheck() {
+    let textLength;
     let inputValue = input.value;
     textLength = inputValue.length;
 
