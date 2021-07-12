@@ -53,20 +53,13 @@ const realTimeRadioChange = () => {
 }
 
 function changeDigitNow(){
-    let value;
-    let radios = formId.elements['radio-digit'];
+    radioDigitValue = getSetting('radio-digit');
 
-    for(let i = 0; i < radios.length; i++){
-        if(radios[i].checked){
-            value = radios[i].value; 
-        }
-    }
-
-    if(value == '5'){
+    if(radioDigitValue == '5'){
         randomNumberDisplay.textContent = '12345';
-    } else if (value == '6'){
+    } else if (radioDigitValue == '6'){
         randomNumberDisplay.textContent = '123456';
-    } else if (value == '7'){
+    } else if (radioDigitValue == '7'){
         randomNumberDisplay.textContent = '1234567';
     } else {
         console.error('something happend');
@@ -74,21 +67,14 @@ function changeDigitNow(){
 }
 
 function changeColorNow(){
-    let value;
-    let radios = formId.elements['radio-color'];
+    radioColorValue = getSetting('radio-color');
 
-    for(let i = 0; i < radios.length; i++){
-        if(radios[i].checked){
-            value = radios[i].value; 
-        }
-    }
-
-    if(value == 'white'){
-        randomNumberDisplayClass.style.color = value;
-    } else if (value == '#0FEB40'){
-        randomNumberDisplayClass.style.color = value;
-    } else if (value == '#F00ED7'){
-        randomNumberDisplayClass.style.color = value;
+    if(radioColorValue == 'white'){
+        randomNumberDisplayClass.style.color = radioColorValue;
+    } else if (radioColorValue == '#0FEB40'){
+        randomNumberDisplayClass.style.color = radioColorValue;
+    } else if (radioColorValue == '#F00ED7'){
+        randomNumberDisplayClass.style.color = radioColorValue;
     } else {
         console.error('something happend');
     }
