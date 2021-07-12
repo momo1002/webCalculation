@@ -58,8 +58,19 @@ input::-ms-clear {
   background-color: #c1f0d3;
   height: auto;
   margin-bottom: 20px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  height: auto;
+}
+
+.setting-container {
+  max-width: 1200px;
+  margin: 10px auto;
+  width: 100%;
+  display: grid;
+  /* Define Auto Row size */
+  grid-auto-rows: 150px;
+  /*Define our columns */
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-gap: 1em;
   height: auto;
 }
 
