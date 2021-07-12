@@ -82,20 +82,20 @@ function getSetting(radioName){
 }
 
 function showRandomNumber(v){
-    let minNumber = 1;
-    let maxNumber = 9;
+    let min = 1;
+    let max = 9;
 
     for(let i = 1; i < parseInt(v); i++){
-        minNumber += '0';
-        maxNumber += '9';
+        min += '0';
+        max += '9';
     }
-    parseInt(minNumber);
-    parseInt(maxNumber);
-    console.log(minNumber);
-    console.log(maxNumber);
+    parseInt(min);
+    parseInt(max);
+    console.log(min);
+    console.log(max);
 
 
-    randomNumber = Math.floor( Math.random() * (maxNumber - minNumber) + minNumber );
+    randomNumber = Math.floor( Math.random() * (max - min + 1) + min );
     randomNumberDisplay.innerHTML = randomNumber;
     result.innerHTML = '';
 } 
