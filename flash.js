@@ -140,6 +140,7 @@ function showRandomNumber(v){
 
     randomNumber = Math.floor( Math.random() * (maxNumber - minNumber) + minNumber );
     randomNumberDisplay.innerHTML = randomNumber;
+    result.innerHTML = '';
 } 
 
 
